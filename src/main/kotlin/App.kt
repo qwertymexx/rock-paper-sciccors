@@ -1,5 +1,9 @@
 class App {
+    companion object {
+        @JvmStatic fun main(args: Array<String>) {
+        play100Times()
 
+        }
     fun start(playerOne: String, playerTwo: String): String? {
 
         val (winner, looser) = calculateWinnerLooser(playerOne, playerTwo)
@@ -28,6 +32,18 @@ class App {
         return (playerOne == "rock" && playerTwo == "scissors") ||
                 (playerOne == "paper" && playerTwo == "rock") ||
                 (playerOne == "scissors" && playerTwo == "paper")
+    }
+
+    fun play100Times() {
+        val list = listOf("rock", "scissors", "paper")
+        val playerOne = "rock"
+
+        for (x in 0..99) {
+            println(this.start(playerOne, list.random()))
+
+        }
+    }
+
     }
 
 }

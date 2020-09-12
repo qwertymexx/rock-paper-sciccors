@@ -24,3 +24,6 @@ compileTestKotlin {
 test {
     useJUnitPlatform()
 }
+
+apply plugin: "application"
+mainClassName = 'App'

@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 
 class AppTest {
 
-    private val rockPaperScissors = App()
+    private val rockPaperScissors = App
 
     @Test
     fun tie_when_both_players_choose_same() {
@@ -42,6 +42,15 @@ class AppTest {
         val result = rockPaperScissors.start(scissorsPlayer, paperPlayer)
 
         assertEquals(result, "scissors beats paper")
+    }
+
+    @Test
+    fun play100Times() {
+        val list = listOf("rock", "scissors", "paper")
+        val playerOne = "rock"
+        val playerTwo = list.random()
+
+        println(rockPaperScissors.start(playerOne,playerTwo))
     }
 
 }
