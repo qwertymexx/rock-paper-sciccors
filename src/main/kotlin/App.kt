@@ -1,9 +1,16 @@
 class App {
+
     companion object {
         @JvmStatic fun main(args: Array<String>) {
+
         play100Times()
 
         }
+
+        var playerOneCounter = 0
+        var playerTwoCounter = 0
+        var tiesCounter = 0
+
     fun start(playerOne: String, playerTwo: String): String? {
 
         val (winner, looser) = calculateWinnerLooser(playerOne, playerTwo)
@@ -22,10 +29,19 @@ class App {
     }
 
     private fun calculateWinnerLooser(playerOne: String, playerTwo: String): Pair<String, String> {
-        return if (whoWins(playerOne, playerTwo))
+        return if (whoWins(playerOne, playerTwo)) {
+            playerOneCounter++
             Pair(playerOne, playerTwo)
-        else
+        }
+        else if (whoWins(playerTwo, playerOne)){
+            playerTwoCounter++
             Pair(playerTwo, playerOne)
+        }
+        else {
+            tiesCounter++
+            Pair(playerTwo, playerOne)
+        }
+
     }
 
     private fun whoWins(playerOne: String, playerTwo: String): Boolean {
@@ -42,6 +58,7 @@ class App {
             println(this.start(playerOne, list.random()))
 
         }
+        println("Player One won $playerOneCounter and Player Two won $playerTwoCounter. Number of ties: $tiesCounter")
     }
 
     }
